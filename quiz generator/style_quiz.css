@@ -6,7 +6,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #48bf95 0%, #2869da 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -198,6 +198,7 @@ input[type="text"]:focus {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+    
 }
 #nextButton:hover {
     transform: translateY(-3px);

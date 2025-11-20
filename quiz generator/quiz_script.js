@@ -15,6 +15,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const startbtn = document.querySelector(".startquiz");
 
 
+    nextbtn.addEventListener('click', () => {
+        stopTimer();
+        currentQuestionIndex += 1;
+        if (currentQuestionIndex >= questions.length) {
+            endQuiz();
+        } else {
+            loadQuestions();
+        }
+    });
+
+    // ending the quiz 
+    function endQuiz() {
+        stopTimer();
+        quizContainer.style.display = "none";
+
+        if (resultUserName) {
+            resultUserName.innerText = username.value;
+
+        }
+        if (finalscore) {
+            finalscore.innerText = `${score}/${questions.length}`;
+
+        }
+
+        if (!finalscore && !resultUserName) {
+            alert(`Name: ${username.value.trim()} | Score: ${score}/${questions.length}`);
+        }
+    }
+
+
+
     //disabling options 
     function disableAllOptions() {
         quizOptions.querySelectorAll('li').forEach(li => {
@@ -55,9 +86,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // enable next
-        const nextBtn = document.getElementById('nextButton');
-        nextBtn.disabled = false;
-        nextBtn.style.opacity = "1";
+
+        nextbtn.disabled = false;
+        nextbtn.style.opacity = "1";
+
+
     }
 
 
@@ -121,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return arr.sort(() => Math.random() - 0.5);
     }
 
-   
+
 
     function loadQuestions() {
         const currentQ = questions[currentQuestionIndex];
