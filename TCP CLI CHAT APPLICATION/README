@@ -1,0 +1,38 @@
+#TCP CLI Chat App
+
+A simple, lightweight command-line chat application built using Node.js.
+It lets multiple clients connect to a TCP server and chat with each other in real time.
+
+🚀 Features
+
+Command-line based
+
+Real-time messaging using TCP sockets
+
+Broadcasts messages to all connected clients
+
+Shows when a client joins/leaves
+
+Easy to run, easy to understand
+
+📦 Tech Used
+
+Node.js
+
+net module (built-in)
+
+📁 Project Structure
+/tcp-chat
+ ├── server.js
+ └── client.js
+
+💬 How It Works
+
+The server listens for incoming TCP connections.
+Every time a new client joins - 
+
+1) it's added to a list.
+2) When a client sends a message, the server broadcasts it to all other clients.
+3) When a client disconnects, others get notified.
+
+
