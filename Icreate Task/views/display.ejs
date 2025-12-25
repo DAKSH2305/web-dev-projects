@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registration Receipt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 3rem 1rem;
+    }
+
+    .receipt-container {
+      max-width: 600px;         
+      min-height: 55vh;          
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 0.5rem;
+      padding: 3rem;             
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                  0 4px 6px -4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .receipt-header {
+      text-align: center;
+    }
+
+    .receipt-header h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+
+    .receipt-header p {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .receipt-body {
+      margin-top: 2.5rem;
+    }
+
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 1rem;          
+    }
+
+    .receipt-label {
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .receipt-value {
+      color: #212f4e;
+      font-weight: 500;
+      text-align: right;
+      min-width: 40%;
+    }
+
+    .receipt-footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .receipt-container {
+        box-shadow: none;
+        border-radius: 0;
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+  function celebrate() {
+    confetti({
+      particleCount: 120,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  }
+
+  // 🔥 AUTO-TRIGGER WHEN PAGE LOADS
+  window.addEventListener("load", () => {
+    celebrate();
+  });
+</script>
+
+
+<body>
+
+  <div class="receipt-container">
+
+    <div>
+      <div class="receipt-header">
+        <h2>Event Registration Successful</h2>
+        <p>Registration Details</p>
+      </div>
+
+      <div class="receipt-body">
+        <div class="receipt-row">
+          <span class="receipt-label">Full Name</span>
+          <span class="receipt-value"> <%= fullname %> </span>
+        </div>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Email Address</span>
+          <span class="receipt-value"><%= email %></span>
+        </div>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Phone Number</span>
+          <span class="receipt-value"><%= phone %></span>
+        </div>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Registration Number</span>
+          <span class="receipt-value"><%= locals['registration-number'] %></span>
+        </div>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Payment Status</span>
+          <span class="receipt-value"> Paid / Verified</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="receipt-footer">
+      This document serves as proof of successful registration.
+    </div>
+
+  </div>
+
+</body>
+</html>

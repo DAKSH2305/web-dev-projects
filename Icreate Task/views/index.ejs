@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+</head>
+<body>
+<div class="main-container">
+ 
+    <div class="form-wrapper">
+        <img
+            src="https://ucarecdn.com/7b4ee20c-0d4c-4a5b-99ef-9d9ca8564b53/eventregristration.png"
+            alt="Event Registration Form Illustration"
+            class="form-image"
+        />
+
+        <form action="/submit-user" method="POST">
+            
+            <div class="form-header">
+                <h2 class="form-title">Event Registration</h2>
+                <p class="form-description">
+                    Fill in the form below to register for the event. All
+                    required fields are marked with *.
+                </p>
+            </div>
+
+           
+            <div class="form-group">
+                <label for="fullname" class="form-label">Full Name*</label>
+                <input
+                    type="text"
+                    name="fullname"
+                    id="fullname"
+                    class="form-input"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address*</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-input"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="phone" class="form-label"
+                    >Phone Number (Optional)</label
+                >
+                <input type="text" name="phone" id="phone" class="form-input" />
+            </div>
+
+            <div class="form-group">
+                <label for="organization" class="form-label"
+                    >Registration Number (Ex- 24ABC12243)</label
+                >
+                <input
+                    type="text"
+                    name="registration-number"
+                    id="registration-number"
+                    class="form-input"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="organization" class="form-label">Select screenshot of payment</label><br><br>
+
+                <input 
+                  type="file"
+                  accept="image/*"
+                  id="imageInput"
+                  required
+                >
+            </div>
+
+                     
+
+            
+
+            
+
+            <div class="form-group">
+                <label for="promo-code" class="form-label"
+                    >Referral Code / Promo Code</label
+                >
+                <input
+                    type="text"
+                    name="promo-code"
+                    id="promo-code"
+                    class="form-input"
+                />
+            </div>
+
+            <!-- Comments or Questions -->
+            <div class="form-group">
+                <label for="comments" class="form-label"
+                    >Comments or Questions</label
+                >
+                <textarea
+                    name="comments"
+                    id="comments"
+                    rows="5"
+                    class="form-textarea"
+                ></textarea>
+            </div>
+
+            <!-- Consent -->
+            <div class="consent-group">
+                <input
+                    type="checkbox"
+                    id="consent-checkbox"
+                    class="form-checkbox"
+                    required
+                />
+                <label for="consent-checkbox" class="consent-label">
+                    I agree to the
+                    <a href="#">terms and conditions of registration</a>.
+                </label>
+            </div>
+
+    
+            <button type="submit" class="submit-btn" id="submitbtn">Register Now</button>
+        </form>
+    </div>
+</div>
+<style>
+    
+    body {
+        font-family: "Inter", sans-serif;
+        background-color: #f3f4f6;
+        margin: 0;
+    }
+
+    
+    .main-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1rem;
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
+
+    
+    .form-wrapper {
+        width: 100%;
+        max-width: 42rem; 
+        border-radius: 0.5rem; 
+        background-color: white;
+        padding: 2.5rem; 
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+            0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+    }
+
+ 
+    .form-image {
+        margin-bottom: 3rem; 
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+
+ 
+    .form-header {
+        margin-bottom: 2rem; 
+        text-align: center;
+    }
+
+    .form-title {
+        font-size: 1.875rem; 
+        font-weight: 600; 
+        color: #1f2937; 
+    }
+
+    .form-description {
+        margin-top: 0.5rem; 
+        font-size: 0.875rem; 
+        color: #4b5563; 
+        line-height: 1.5;
+    }
+
+    
+    .form-group {
+        margin-bottom: 1.5rem; 
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem; 
+        font-size: 0.875rem;
+        font-weight: 500; 
+        color: #4b5563; 
+    }
+
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+        width: 100%;
+        border-radius: 0.375rem; 
+        border: 1px solid #d1d5db; 
+        padding: 0.75rem;
+        font-size: 0.875rem; 
+        color: #1f2937; 
+        box-sizing: border-box;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+        border-color: #6366f1; 
+        box-shadow: 0 0 0 1px #6366f1; 
+        outline: none;
+    }
+
+    
+    .radio-group {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .option-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .form-radio {
+        height: 1rem;
+        width: 1rem;
+        color: #4f46e5;
+        margin-right: 0.5rem;
+    }
+
+    
+    .consent-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-checkbox {
+        height: 1rem;
+        width: 1rem;
+        color: #4f46e5;
+    }
+
+    .consent-label {
+        margin-left: 0.5rem;
+        font-size: 0.875rem;
+        color: #4b5563;
+    }
+
+    .consent-label a {
+        color: #4f46e5;
+        text-decoration: none;
+    }
+
+    .consent-label a:hover {
+        text-decoration: underline;
+    }
+
+
+    .submit-btn {
+        width: 100%;
+        border-radius: 0.375rem;
+        background-color: #4f46e5;
+        padding: 0.75rem 1.5rem;
+        font-weight: 500;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .submit-btn:hover {
+        background-color: #4338ca;
+    }
+
+    .submit-btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
+    }
+
+
+    @media (max-width: 640px) {
+        .main-container {
+            padding: 1rem;
+        }
+        .form-wrapper {
+            padding: 1.5rem;
+        }
+        .form-title {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+</body>
+</html>
